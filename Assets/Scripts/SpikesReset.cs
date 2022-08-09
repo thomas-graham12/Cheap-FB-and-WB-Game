@@ -16,11 +16,13 @@ public class SpikesReset : MonoBehaviour
         {
             deadPanel.SetActive(true);
             deadScreen.text = "Oh no, Player 1 got deaded! Press the reset button to go again!";
+            Time.timeScale = 0f;
         }
         if (other.CompareTag("Player2"))
         {
             deadPanel.SetActive(true);
             deadScreen.text = "Oh no, Player 2 got deaded! Press the reset button to go again!";
+            Time.timeScale = 0f;
         }
     }
 }

@@ -9,4 +9,16 @@ public class MainMenuButton : MonoBehaviour
     {
         SceneManager.LoadScene("Level 1");
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Level 1");
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
+    }
 }

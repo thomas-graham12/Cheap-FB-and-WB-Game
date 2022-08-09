@@ -16,6 +16,7 @@ public class LavaWaterReset : MonoBehaviour
         {
             deadText.text = "Uh oh, someone has deaded! GG go next";
             deadPanel.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }
