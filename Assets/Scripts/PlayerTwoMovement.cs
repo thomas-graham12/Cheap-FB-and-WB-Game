@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerTwoMovement : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 12f;
     private bool isFacingRight = true;
+    [SerializeField] private float speed = 8f;
+    [SerializeField] private float jumpingPower = 12f;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private bool isGrounded;
 
 
     // Update is called once per frame
@@ -19,12 +20,13 @@ public class PlayerTwoMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Player2Horizontal");
 
-        if (Input.GetButtonDown("Jump2") && IsGrounded())
+        if (Input.GetButtonDown("Jump2") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            isGrounded = false;
         }
 
-        if (Input.GetButtonDown("Jump2") && rb.velocity.y > 0f)
+        if (Input.GetButtonDown("Jump2") && rb.velocity.y > 0f && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
@@ -37,9 +39,12 @@ public class PlayerTwoMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
-    private bool IsGrounded()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        if (collision.collider.gameObject.layer == 6)
+        {
+            isGrounded = true;
+        }
     }
 
     private void Flip()
