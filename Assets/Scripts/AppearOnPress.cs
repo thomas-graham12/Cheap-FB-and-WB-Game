@@ -5,15 +5,25 @@ using UnityEngine;
 public class AppearOnPress : MonoBehaviour
 {
     public GameObject reAppear;
+    public GameObject disappear;
+    public string nameTag;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player1"))
+        if (other.CompareTag(nameTag))
+        {
             reAppear.SetActive(true);
+            disappear.SetActive(false);
+        }
+            
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player1"))
-            reAppear.SetActive(false);
+        if (other.CompareTag(nameTag))
+        {
+            reAppear.SetActive(false); ;
+            disappear.SetActive(true);
+        }
     }
 }

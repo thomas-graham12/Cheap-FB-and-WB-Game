@@ -2,22 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisappearingWall : MonoBehaviour
+public class ChangeLiquids : MonoBehaviour
 {
-    public GameObject wall;
+    public GameObject liquidOne;
+    public GameObject liquidTwo;
     public string nameTag;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(nameTag))
         {
-            Destroy(wall);
+            liquidOne.SetActive(false);
+            liquidTwo.SetActive(true);
         }
     }
 }
