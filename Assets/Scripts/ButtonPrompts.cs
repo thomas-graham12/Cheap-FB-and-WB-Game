@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ButtonPrompts : MonoBehaviour
 {
+    public string currentLevel;
     public void RestartLevel()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(currentLevel);
         Time.timeScale = 1f;
     }
 }
