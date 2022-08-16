@@ -8,11 +8,13 @@ public class WinCon : MonoBehaviour
     public GameObject playerOne;
     public GameObject playerTwo;
 
+    public string levelName;
+
     void Update()
     {
         if (playerOne == null && playerTwo == null)
         {
-            SceneManager.LoadScene("Win Scene");
+            SceneManager.LoadScene(levelName);
         }
     }
 }
