@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7305808684422685459, guid: 56a35b4047ddbf345b34a79c0442c8b3, type: 3}
       propertyPath: jumpingPower
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7305808684422685460, guid: 56a35b4047ddbf345b34a79c0442c8b3, type: 3}
       propertyPath: m_Size.x
